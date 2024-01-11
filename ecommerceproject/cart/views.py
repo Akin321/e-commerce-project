@@ -62,3 +62,7 @@ def full_remove(request,product_id):
     cart_item.delete()
     return redirect('cart:cart_detail')
 
+def remove_cart(request):
+    cart=Cart.objects.get(cart_id=_cart_id(request))
+    cart.delete()
+    return redirect('shop:allprodcat')
